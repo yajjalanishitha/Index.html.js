@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@100&family=Sacramento&display=swap" rel="stylesheet">
+
+<style>
+    body{
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        align-items: center;
+        justify-content:center;
+    }
+    .cal{
+        height: 500px;
+        width: 300px;
+       
+        border-radius: 10px;
+        position: relative;
+        background-color: rgb(62, 62, 62);
+        margin-top: 80px;
+        padding: 6px;
+    }
+    input{
+        height: 50px;
+        width: 291px;
+        margin-top: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        border: 3px solid black;
+        box-shadow: rgb(96, 96, 96) 0px 4px 7px 2px;
+        font-size: larger;
+        background-color: rgb(184, 211, 234);
+    }
+    button{
+        height: 50px;
+        border-radius:6px;
+        box-shadow: rgb(104, 104, 104) 0px 4px 7px 2px;
+        width: 50px;
+        margin: 20px 11px 13px;
+        font-weight: bold;
+        font-size: medium;
+    }
+    button:hover{
+        background-color: rgb(176, 175, 175);
+    }
+    .ora{
+        background-color: orange;
+        height: 50px;
+        width: 278px;
+    }
+    .ora1{
+        background-color: rgb(223, 19, 19);
+    }
+</style>
+
+</head>
+<body>
+
+    <div class="cal" id="Calculator">
+        <input type="text" id="result" readonly>
+        <br>
+        <button onclick="appendNumber('7')">7</button>
+        <button onclick="appendNumber('8')">8</button>
+        <button onclick="appendNumber('9')">9</button>
+        <button onclick="appendOperator('/')">/</button>
+        <br>
+        <button onclick="appendNumber('4')">4</button>
+        <button onclick="appendNumber('5')">5</button>
+        <button onclick="appendNumber('6')">6</button>
+        <button onclick="appendOperator('*')">*</button>
+        <br>
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendNumber('2')">2</button>
+        <button onclick="appendNumber('3')">3</button>
+        <button onclick="appendOperator('-')">-</button>
+        <br>
+        <button onclick="appendNumber('0')">0</button>
+        <button onclick="appendOperator('+')">+</button>
+        <button onclick="appendNumber('.')">.</button>
+        <button onclick="clearResult()" class="ora1">C</button>
+        <button onclick="calculateResult()" class="ora">=</button>
+        <br>
+    </div>
+
+    <script>
+        function appendNumber(number) {
+            document.getElementById("result").value += number;
+        }
+
+        function appendOperator(operator) {
+            document.getElementById("result").value += operator;
+        }
+
+        function clearResult() {
+            document.getElementById("result").value = "";
+        }
+
+        function calculateResult() {
+            let expression = document.getElementById("result").value;
+            let result = eval(expression);
+            document.getElementById("result").value = result;
+        }
+    </script>
+
+</body>
+</html>
